@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Inventário Mercadinho Fera - Início</title>
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/bootstrap-vue.css">
+</head>
+
+<body>
+    <h4>Lista de Produtos</h4>
+    <b-table
+        hover
+        responsive
+        :items="listaProdutos"
+        :fields="listaProdutosHeader"
+        style="margin-bottom: 50px; overflow-y: hidden">
+    </b-table>
+</body>
+</html>

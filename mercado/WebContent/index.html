@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Inventário Mercadinho - Início</title>
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/bootstrap-vue.css">
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/indexCss.css">
+</head>
+
+<body>
+	<div id="inicio" class="container-fluid table" >	
+		<a href="/mercado/novo-produto.html">Adicionar novo produto</a>
+			<h4>Lista de Produtos</h4>
+			
+			<table>
+			  <tr>
+				<th>Nome</th>
+				<th>Fabricante</th>
+				<th>Volume</th>
+				<th>Unidade</th>
+				<th>Estoque</th>
+				<th></th>
+				<th></th>
+			  </tr>
+			  
+			  <tbody  id="event-table" >		  
+				<tr v-for="(produto,index) in listaProdutos" > 				
+				  <td v-show="visivel">{{ produto.nome }}</td> 
+				  <td v-show="visivel">{{ produto.fabricante.nome }}</td> 
+				  <td v-show="visivel">{{ produto.volume }}</td> 
+				  <td v-show="visivel">{{ produto.unidade }}</td> 
+				  <td v-show="visivel">{{ produto.estoque }}</td>  
+				   			
+				    <form @submit.prevent="test" > 
+				       <td v-show="!visivel" v-if="produto.nome+index"> <input required="required" :id="produto.nome+index" v-model="produto.nome"/></td>
+				       <td v-show="!visivel" v-if="produto.nome+index"> <input required="required" :id="produto.nome+index" v-model="produto.fabricante.nome"/></td>
+				       <td v-show="!visivel" v-if="produto.nome+index"> <input required="required" type="number" :id="produto.nome+index" v-model="produto.volume"/></td>
+				       <td v-show="!visivel" v-if="produto.nome+index"> <input required="required" type="number" :id="produto.nome+index" v-model.number="produto.unidade"/></td>
+				       <td v-show="!visivel" v-if="produto.nome+index"> <input required="required" type="number" :id="produto.nome+index" v-model.number="produto.estoque"/></td>
+					   <td v-show="!visivel"> <b-button @click="alterarProduto(produto)" variant="primary">Confirmar Alteração</b-button> </td>
+				    </form> 
+				     			  
+				  <td>	 	
+				    <b-button class="bt" @click="editarProduto(produto.nome,index)" variant="link">&#9998;</b-button>  
+					<b-button class="bt" @click="deletaProduto(produto.id)" variant="link">&#10006;</b-button>
+				  </td> 		  
+				</tr> 
+			  </tbody> 
+			  
+			</table> 
+	  </div>
+
+	  <script src="resources/js/vue.js"></script>
+	  <script src="resources/js/axios.min.js"></script>
+	  <script src="resources/js/bootstrap-vue.js"></script>
+	  <script src="resources/js/bootstrap.min.js"></script>
+	  <script src="resources/js/index.js"></script>
+</body>
+</html>

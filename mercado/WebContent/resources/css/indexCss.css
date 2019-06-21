@@ -1,0 +1,22 @@
+.bt{
+	text-decoration:none;
+}
+
+.bt:hover{
+	text-decoration:none;
+	border: solid;
+}
+
+.bt:click{
+	text-decoration:none;
+}
+
+.bt:focus{ 
+	text-decoration:none;
+}
+
+.bt-link:hover {
+	 text-decoration:none; 
+}
+
+
